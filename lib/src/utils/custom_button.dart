@@ -237,7 +237,6 @@ class CustomButton extends StatelessWidget {
             ),
           ],
         ),
-        // onPressed: onTap,
       ),
     );
   }
