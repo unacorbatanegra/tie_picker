@@ -16,6 +16,7 @@ void main() {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        TiePickerLocalizations.delegate
       ],
       home: MainPage(),
     ),

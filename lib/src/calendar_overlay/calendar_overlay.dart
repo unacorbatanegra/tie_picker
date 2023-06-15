@@ -43,12 +43,15 @@ class CalendarOverlay extends StateWidget<CalendarOverlayController> {
                     onPressed: state.onClose,
                   ),
                   Text(
-                    'Calendar',
+                    TiePickerLocalizations.of(context)?.calendarTitle ??
+                        'nullo',
                     style: context.h6,
                   ),
                   CupertinoButton(
                     padding: zero,
-                    child: const Text('Today'),
+                    child: Text(
+                      TiePickerLocalizations.of(context)!.calendarToday,
+                    ),
                     onPressed: state.today,
                   ).paddingOnly(right: 6.0),
                 ],

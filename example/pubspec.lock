@@ -139,9 +139,10 @@ packages:
   occam:
     dependency: transitive
     description:
-      path: "/Users/unacorbatanegra/desarrollo/dart/occam"
-      relative: false
-    source: path
+      name: occam
+      sha256: "280ae7a6c66a5482484355a9e4df06a53fe837940cba4b98c021b9a50465ccab"
+      url: "https://pub.dev"
+    source: hosted
     version: "1.0.0"
   path:
     dependency: transitive

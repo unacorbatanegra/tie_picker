@@ -1,0 +1,15 @@
+{
+    "@@locale": "es",
+    "calendarTitle": "Calendario",
+    "@calendarTitle": {
+        "description": "Titulo de calendario"
+    },
+    "calendarToday": "Hoy",
+    "@calendarToday": {
+        "description": "Hoy en el calendario"
+    },
+    "timeTitle": "Hora",
+    "@timeTitle": {
+        "description": "Titulo de hora"
+    }
+}

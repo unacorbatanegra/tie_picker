@@ -7,6 +7,10 @@ import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:occam/occam.dart';
 
+import 'l10n/tie_picker_localizations.dart';
+
+export 'l10n/tie_picker_localizations.dart';
+
 part 'src/calendar_overlay/calendar_overlay.dart';
 part 'src/calendar_overlay/calendar_overlay_controller.dart';
 part 'src/calendar_overlay/widgets/day_picker.dart';

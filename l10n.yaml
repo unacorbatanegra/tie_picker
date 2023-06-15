@@ -1,0 +1,6 @@
+arb-dir: l10n
+template-arb-file: app_en.arb
+output-localization-file: tie_picker_localizations.dart
+output-dir: lib/l10n
+output-class: TiePickerLocalizations
+synthetic-package: false

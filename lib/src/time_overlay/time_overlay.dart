@@ -43,7 +43,7 @@ class TimeOverlay extends StateWidget<TimeOverlayController> {
                     onPressed: state.onClose,
                   ),
                   Text(
-                    'Time',
+                    TiePickerLocalizations.of(context)!.timeTitle,
                     style: context.h6,
                   ),
                   CupertinoButton(
