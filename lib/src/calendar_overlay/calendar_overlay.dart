@@ -15,84 +15,91 @@ class CalendarOverlay extends StateWidget<CalendarOverlayController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      constraints: BoxConstraints(maxHeight: context.h * .6),
-      child: Column(
-        children: [
-          AppBar(
-            centerTitle: true,
-            leading: CupertinoButton(
-              child: const Icon(Icons.close),
-              onPressed: state.onClose,
+    return SafeArea(
+      bottom: false,
+      child: Material(
+        color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: radius8,
+          topRight: radius8,
+        ),
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: radius8,
+              topRight: radius8,
             ),
-            title: Text(
-              'Calendar',
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            actions: [
-              CupertinoButton(
-                child: const Text(
-                  'Today',
-                  style: TextStyle(color: Palette.gray1),
-                ),
-                onPressed: state.today,
-              )
-            ],
           ),
-          RxWidget<CalendarMode>(
-            notifier: state.calendarMode,
-            builder: (ctx, calendarMode) {
-              if (calendarMode == CalendarMode.year) {
-                return emptyWidget;
-              }
-              return Row(
+          constraints: BoxConstraints(minHeight: context.h * .5),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CupertinoButton(
-                    child: const Icon(Icons.arrow_back_ios),
-                    onPressed: state.back,
+                    padding: zero,
+                    child: const Icon(Icons.close),
+                    onPressed: state.onClose,
                   ),
-                  RxWidget<String>(
-                    notifier: state.title,
-                    builder: (ctx, title) => InkWell(
-                      onTap: state.onTapTitle,
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.visible,
-                        style: context.s1,
-                      ),
-                    ),
+                  Text(
+                    'Calendar',
+                    style: context.h6,
                   ),
                   CupertinoButton(
-                    child: const Icon(Icons.arrow_forward_ios),
-                    onPressed: state.next,
-                  ),
+                    padding: zero,
+                    child: const Text('Today'),
+                    onPressed: state.today,
+                  ).paddingOnly(right: 6.0),
                 ],
-              );
-            },
-          ),
-          const SizedBox(height: 16.0),
-          Expanded(
-            child: RxWidget<CalendarMode>(
-              notifier: state.calendarMode,
-              builder: (ctx, calendarMode) {
-                switch (calendarMode) {
-                  case CalendarMode.day:
-                    return const DayPicker();
-                  case CalendarMode.month:
-                    return const MonthPicker();
-                  case CalendarMode.year:
-                    return const YearPicker();
-                  default:
+              ).paddingSymmetric(horizontal: 6.0),
+              RxWidget<CalendarMode>(
+                notifier: state.calendarMode,
+                builder: (ctx, calendarMode) {
+                  if (calendarMode == CalendarMode.year) {
                     return emptyWidget;
-                }
-              },
-            ),
+                  }
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CupertinoButton(
+                        padding: zero,
+                        child: const Icon(Icons.arrow_back_ios),
+                        onPressed: state.back,
+                      ),
+                      RxWidget<String>(
+                        notifier: state.title,
+                        builder: (ctx, title) => InkWell(
+                          onTap: state.onTapTitle,
+                          child: Text(
+                            title,
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.visible,
+                            style: context.s1,
+                          ),
+                        ),
+                      ),
+                      CupertinoButton(
+                        padding: zero,
+                        child: const Icon(Icons.arrow_forward_ios),
+                        onPressed: state.next,
+                      ),
+                    ],
+                  ).paddingSymmetric(horizontal: 6.0);
+                },
+              ),
+              RxWidget<CalendarMode>(
+                notifier: state.calendarMode,
+                builder: (ctx, calendarMode) => switch (calendarMode) {
+                  CalendarMode.day => const DayPicker(),
+                  CalendarMode.month => const MonthPicker(),
+                  CalendarMode.year => const YearPicker(),
+                },
+              ),
+              const Gap(64)
+            ],
           ),
-          const SizedBox(height: 36.0)
-        ],
+        ),
       ),
     );
   }

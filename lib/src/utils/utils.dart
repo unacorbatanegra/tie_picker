@@ -12,30 +12,48 @@ extension WidgetPaddingX on Widget {
         ),
         child: this,
       );
+      
+  Widget paddingOnly({
+    double left = 0.0,
+    double top = 0.0,
+    double right = 0.0,
+    double bottom = 0.0,
+  }) =>
+      Padding(
+        padding: EdgeInsets.only(
+          top: top,
+          left: left,
+          right: right,
+          bottom: bottom,
+        ),
+        child: this,
+      );
 }
+
+const radius8 = Radius.circular(8);
 
 extension Context on BuildContext {
   TextTheme get text => Theme.of(this).textTheme;
 
-  TextStyle? get h1 => text.headline1;
-  TextStyle? get h2 => text.headline2;
-  TextStyle? get h3 => text.headline3;
-  TextStyle? get h4 => text.headline4;
-  TextStyle? get h5 => text.headline5;
-  TextStyle? get h6 => text.headline6;
-  TextStyle? get h7 => text.headline6?.copyWith(
+  TextStyle? get h1 => text.displayLarge;
+  TextStyle? get h2 => text.displayMedium;
+  TextStyle? get h3 => text.displaySmall;
+  TextStyle? get h4 => text.headlineMedium;
+  TextStyle? get h5 => text.headlineSmall;
+  TextStyle? get h6 => text.titleLarge;
+  TextStyle? get h7 => text.titleLarge?.copyWith(
         fontSize: 20.0,
         fontWeight: FontWeight.w600,
       );
 
-  TextStyle? get s1 => text.subtitle1;
-  TextStyle? get s2 => text.subtitle2;
-  TextStyle? get s3 => text.subtitle1?.copyWith(
+  TextStyle? get s1 => text.titleMedium;
+  TextStyle? get s2 => text.titleSmall;
+  TextStyle? get s3 => text.titleMedium?.copyWith(
         fontWeight: FontWeight.w700,
         color: Palette.gray2,
       );
 
-  TextStyle? get b => text.button;
+  TextStyle? get b => text.labelLarge;
 
   Size get size => MediaQuery.of(this).size;
 
@@ -56,4 +74,44 @@ abstract class Palette {
   static const gray6 = Color(0xFFF2F2F2);
 
   static const culture = Color(0xFFEFF1F3);
+}
+
+extension HelpS on String {
+  String get capitalize {
+    if (isEmpty) return '';
+    return this[0].toUpperCase() + substring(1);
+  }
+}
+
+extension DateCopyWith on DateTime {
+  // ignore: unused_element
+
+  String weekdayFormat(BuildContext context) {
+    final _weekDayformat = DateFormat(
+      'E',
+      Localizations.localeOf(context).languageCode,
+    );
+    return _weekDayformat.format(this).capitalize.replaceAll('.', '');
+  }
+
+  DateTime copyWith({
+    int? year,
+    int? month,
+    int? day,
+    int? hour,
+    int? minute,
+    int? second,
+    int? millisecond,
+    int? microsecond,
+  }) =>
+      DateTime(
+        year ?? this.year,
+        month ?? this.month,
+        day ?? this.day,
+        hour ?? this.hour,
+        minute ?? this.minute,
+        second ?? this.second,
+        millisecond ?? this.millisecond,
+        microsecond ?? this.microsecond,
+      );
 }

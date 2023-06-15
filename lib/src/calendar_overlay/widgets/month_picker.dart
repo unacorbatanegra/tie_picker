@@ -36,7 +36,7 @@ class MonthPicker extends ParentState<CalendarOverlayController> {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(4.0),
               child: Text(
-                date.monthFormat,
+                date.monthFormat(context),
                 style: TextStyle(
                   fontSize: 14,
                   color: isSelected ? Colors.white : Colors.black,

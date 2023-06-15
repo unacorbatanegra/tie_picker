@@ -18,47 +18,60 @@ class MiniPickerOverlay<T> extends StateWidget<MiniPickerOverlayController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+    return SafeArea(
+      bottom: false,
+      child: Material(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
         ),
-      ),
-      constraints: BoxConstraints(
-        minHeight: context.h * .3,
-        maxHeight: context.h * .7,
-      ),
-      child: Column(
-        children: [
-          AppBar(
-            leading: CupertinoButton(
-              child: const Icon(Icons.close),
-              onPressed: state.onClose,
-            ),
-            centerTitle: true,
-            title: Text(
-              label,
-              style: context.h7,
+        color: Colors.white,
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
             ),
           ),
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              children: list
-                  .map(
-                    (e) => ItemWidget(
-                      selected: e == item,
-                      label: toText(e),
-                      onTap: () => state.onTap(e),
+          constraints: BoxConstraints(
+            minHeight: context.h * .3,
+            maxHeight: context.h * .5,
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  CupertinoButton(
+                    child: const Icon(Icons.close),
+                    onPressed: state.back,
+                  ),
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: context.h7,
                     ),
-                  )
-                  .toList(),
-            ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: list
+                      .map(
+                        (e) => ItemWidget(
+                          selected: e == item,
+                          label: toText(e),
+                          onTap: () => state.onTap(e),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+              const Gap(18),
+            ],
           ),
-          const SizedBox(height: 18.0)
-        ],
+        ),
       ),
     );
   }

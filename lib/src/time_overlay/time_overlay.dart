@@ -13,42 +13,60 @@ class TimeOverlay extends StateWidget<TimeOverlayController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      height: context.h * .4,
-      width: context.w,
-      // constraints: BoxConstraints(maxHeight: context.height * .6),
-      child: Column(
-        children: [
-          AppBar(
-            leading: CupertinoButton(
-              child: const Icon(Icons.close),
-              onPressed: state.onClose,
+    return SafeArea(
+      bottom: false,
+      child: Material(
+        color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: radius8,
+          topRight: radius8,
+        ),
+        child: Container(
+          width: context.w,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: radius8,
+              topRight: radius8,
             ),
-            centerTitle: true,
-            title: Text(
-              'Time',
-              style: context.h7,
-            ),
-            actions: [
-              CupertinoButton(
-                child: const Icon(Icons.done),
-                onPressed: state.accept,
-              )
+          ),
+          constraints: BoxConstraints(
+            maxHeight: context.h * .4,
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CupertinoButton(
+                    padding: zero,
+                    child: const Icon(Icons.close),
+                    onPressed: state.onClose,
+                  ),
+                  Text(
+                    'Time',
+                    style: context.h6,
+                  ),
+                  CupertinoButton(
+                    padding: zero,
+                    child: const Icon(Icons.done),
+                    onPressed: state.accept,
+                  ).paddingOnly(right: 6.0),
+                ],
+              ).paddingSymmetric(horizontal: 6.0),
+              Expanded(
+                child: RxWidget<DateTime?>(
+                  notifier: state.currentTime,
+                  builder: (ctx, currentTime) => CupertinoDatePicker(
+                    mode: CupertinoDatePickerMode.time,
+                    initialDateTime: currentTime,
+                    onDateTimeChanged: state.currentTime,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 36),
             ],
           ),
-          Expanded(
-            child: RxWidget<DateTime?>(
-              notifier: state.currentTime,
-              builder: (ctx, currentTime) => CupertinoDatePicker(
-                mode: CupertinoDatePickerMode.time,
-                initialDateTime: currentTime,
-                onDateTimeChanged: state.onDateTime,
-              ),
-            ),
-          ),
-          const SizedBox(height: 36),
-        ],
+        ),
       ),
     );
   }

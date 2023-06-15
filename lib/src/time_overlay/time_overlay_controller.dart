@@ -5,17 +5,7 @@ class TimeOverlayController extends StateController<TimeOverlay> {
 
   @override
   void initState() {
-    final time = widget.time ?? DateTime.now();
-    currentTime.value = DateTime(
-      time.year,
-      time.month,
-      time.day,
-      time.hour,
-      time.minute,
-      time.second,
-      time.millisecond,
-      time.microsecond,
-    );
+    currentTime.value = widget.time ?? DateTime.now();
     super.initState();
   }
 
