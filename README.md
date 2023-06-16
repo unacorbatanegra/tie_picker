@@ -66,4 +66,76 @@ date = await ModalPicker.datePicker(
 
 ### ModalPicker
 
+The modal picker accepts any `List<T>` argument with any `T` argument using the equality of the hashes for comparing the data.
+
+Example:
+
+```dart
+class MyClass {
+  final int id;
+  final String value;
+
+  MyClass({
+    required this.id,
+    required this.value,
+  });
+
+  @override
+  bool operator ==(covariant MyClass other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.id == id &&
+      other.value == value;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ value.hashCode;
+}
+
+```
+
+The `toText()` function allows parsing correctly any label from any `T` value. To perform a search, `TextField` uses the labeled result of the `toText()` function to lookup through the items.
+
+Usage:
+
+```dart
+int? item = 0;
+
+void openModalPicker() async {
+    final result = await ModalPicker.modalPick<int>(
+        context: context,
+        label: 'Modal pick',
+        list: List.generate(50, (index) => index),
+        item: item,
+        toText: (value) => 'Option $value',
+    );
+    if (result == null) return;
+    item = result;
+}
+```
+
 ### MiniPicker
+
+The MiniPicker is as the name said, a tiny version of the picker to choose between a tiny number of items. It behaves the same way as the [ModalPicker](#modalpicker).
+
+Usage:
+
+```dart
+MyClass? data;
+
+void openMiniPicker() async {
+    final result = await ModalPicker.miniPick<MyClass>(
+        context: context,
+        label: 'Mini pick',
+        list: List.generate(
+        50,
+        (index) => MyClass(id: index, value: "Option $index"),
+        ),
+        item: data,
+        toText: (value) => 'Option $value',
+    );
+    if (result == null) return;
+    data = result;
+}
+```

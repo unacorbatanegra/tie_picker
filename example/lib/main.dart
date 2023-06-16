@@ -1,7 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// ignore_for_file: avoid_print
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tie_picker/tie_picker.dart';
 
@@ -41,13 +40,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   DateTime? date;
   void openDatePicker() async {
-
     date = await ModalPicker.datePicker(
       context: context,
       date: date,
       mode: CalendarMode.day,
     );
-    
   }
 
   @override
@@ -96,16 +93,21 @@ class _MainPageState extends State<MainPage> {
     item = result;
   }
 
+  MyClass? data;
+
   void openMiniPicker() async {
-    final result = await ModalPicker.miniPick<int>(
+    final result = await ModalPicker.miniPick<MyClass>(
       context: context,
       label: 'Mini pick',
-      list: List.generate(50, (index) => index),
-      item: item,
+      list: List.generate(
+        50,
+        (index) => MyClass(id: index, value: "Option $index"),
+      ),
+      item: data,
       toText: (value) => 'Option $value',
     );
     if (result == null) return;
-    item = result;
+    data = result;
   }
 
   void openTimePicker() async {
@@ -114,4 +116,24 @@ class _MainPageState extends State<MainPage> {
       date: date,
     );
   }
+}
+
+class MyClass {
+  final int id;
+  final String value;
+
+  MyClass({
+    required this.id,
+    required this.value,
+  });
+
+  @override
+  bool operator ==(covariant MyClass other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id && other.value == value;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ value.hashCode;
 }
