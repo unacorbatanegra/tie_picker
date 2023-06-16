@@ -91,6 +91,7 @@ class DayPicker extends ParentState<CalendarOverlayController> {
                   }
 
                   Color textColor;
+                  
                   if (isNotInTheMonth) {
                     textColor = Palette.gray2;
                     if (isSelected) {

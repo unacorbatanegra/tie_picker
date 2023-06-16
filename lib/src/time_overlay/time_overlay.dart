@@ -2,10 +2,12 @@ part of tie_picker;
 
 class TimeOverlay extends StateWidget<TimeOverlayController> {
   final DateTime? time;
+  final bool use24hFormat;
 
   const TimeOverlay({
     Key? key,
     required this.time,
+    this.use24hFormat = false,
   }) : super(key: key);
 
   @override
@@ -58,6 +60,7 @@ class TimeOverlay extends StateWidget<TimeOverlayController> {
                   notifier: state.currentTime,
                   builder: (ctx, currentTime) => CupertinoDatePicker(
                     mode: CupertinoDatePickerMode.time,
+                    use24hFormat: use24hFormat,
                     initialDateTime: currentTime,
                     onDateTimeChanged: state.currentTime,
                   ),

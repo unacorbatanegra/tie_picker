@@ -8,12 +8,11 @@ import 'package:tie_picker/tie_picker.dart';
 void main() {
   runApp(
     MaterialApp(
-      locale: const Locale('es'),
+      locale: const Locale('en'),
       theme: ThemeData.from(colorScheme: const ColorScheme.light()),
       supportedLocales: const [
         Locale('es', 'AR'),
         ...TiePickerLocalizations.supportedLocales
-        // Locale('es', 'PY'),
       ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

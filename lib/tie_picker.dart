@@ -110,6 +110,7 @@ abstract class ModalPicker {
       context: context,
       builder: (ctx) => TimeOverlay(
         time: date,
+        use24hFormat: true,
       ),
       useRootNavigator: true,
     );

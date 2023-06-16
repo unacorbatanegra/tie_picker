@@ -110,6 +110,24 @@ abstract class TiePickerLocalizations {
   /// In en, this message translates to:
   /// **'Time'**
   String get timeTitle;
+
+  /// Filter title
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get filterTitle;
+
+  /// filter update
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get filterUpdate;
+
+  /// Clear filters
+  ///
+  /// In en, this message translates to:
+  /// **'Clear filters'**
+  String get filterClear;
 }
 
 class _TiePickerLocalizationsDelegate extends LocalizationsDelegate<TiePickerLocalizations> {

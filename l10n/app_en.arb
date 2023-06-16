@@ -11,5 +11,18 @@
     "timeTitle": "Time",
     "@timeTitle": {
         "description": "Time title"
+    },
+    "filterTitle":"Filter",
+    "@filterTitle":{
+        "description":"Filter title"
+    },
+     "filterUpdate":"Update",
+    "@filterUpdate":{
+        "description":"filter update"
+    },
+    "filterClear":"Clear filters",
+    "@filterClear":{
+        "description":"Clear filters"
     }
+
 }

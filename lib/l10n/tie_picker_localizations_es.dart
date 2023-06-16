@@ -12,4 +12,13 @@ class TiePickerLocalizationsEs extends TiePickerLocalizations {
 
   @override
   String get timeTitle => 'Hora';
+
+  @override
+  String get filterTitle => 'Filtrar';
+
+  @override
+  String get filterUpdate => 'Actualizar filtros';
+
+  @override
+  String get filterClear => 'Limpiar filtros';
 }

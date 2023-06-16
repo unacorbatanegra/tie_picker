@@ -15,16 +15,20 @@ class FilterPicker extends StateWidget<FilterController> {
     return SafeArea(
       bottom: false,
       child: Material(
+        borderRadius: const BorderRadius.only(
+          topLeft: radius8,
+          topRight: radius8,
+        ),
+        color: Colors.white,
         child: Container(
           width: context.w,
           constraints: BoxConstraints(
             maxHeight: context.h * 0.9,
           ),
           decoration: const BoxDecoration(
-            color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(6.0),
-              topRight: Radius.circular(6.0),
+              topLeft: radius8,
+              topRight: radius8,
             ),
           ),
           // padding: const EdgeInsets.all(16.0),
@@ -38,7 +42,7 @@ class FilterPicker extends StateWidget<FilterController> {
                     height: 16.0,
                   ),
                   Text(
-                    'Filtrar',
+                    TiePickerLocalizations.of(context)!.filterTitle,
                     style: context.h6?.copyWith(
                       fontWeight: FontWeight.w800,
                       fontSize: 22.0,
@@ -98,12 +102,14 @@ class FilterPicker extends StateWidget<FilterController> {
                     children: [
                       CupertinoButton(
                         onPressed: state.clear,
-                        child: const Text('Limpiar filtros'),
+                        child: Text(
+                          TiePickerLocalizations.of(context)!.filterUpdate,
+                        ),
                       ),
                       const SizedBox(height: 16),
                       CustomButton(
                         onTap: state.save,
-                        label: 'Actualizar filtros',
+                        label: TiePickerLocalizations.of(context)!.filterUpdate,
                       )
                     ],
                   ),
