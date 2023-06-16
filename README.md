@@ -169,3 +169,14 @@ void openMiniPicker() async {
 Showcase:
 
 ![Demo4](https://github.com/unacorbatanegra/tie_picker/assets/44511181/2a596b6b-f35e-4cd7-beaf-ea96684046f2)
+
+## TODO
+
+- [ ] Unit & Integration test
+- [ ] FilterPicker
+
+## Disclaimer
+
+This package is intended to be used on my personal & work projects. Feel free to contribute.
+
+Enjoy :)
