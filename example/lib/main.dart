@@ -9,7 +9,13 @@ void main() {
   runApp(
     MaterialApp(
       locale: const Locale('en'),
-      theme: ThemeData.from(colorScheme: const ColorScheme.light()),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6C6EA0),
+          brightness: Brightness.light,
+        ),
+      ),
       supportedLocales: const [
         Locale('es', 'AR'),
         ...TiePickerLocalizations.supportedLocales
@@ -46,7 +52,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Tie picker')),
       body: SizedBox(
-        width: context.w,
+        width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,7 +87,7 @@ class _MainPageState extends State<MainPage> {
       label: 'Modal pick',
       list: List.generate(50, (index) => index),
       item: item,
-      toText: (value) => '$value',
+      toText: (value) => 'Option $value',
     );
     if (result == null) return;
     item = result;
@@ -90,10 +96,10 @@ class _MainPageState extends State<MainPage> {
   void openMiniPicker() async {
     final result = await ModalPicker.miniPick<int>(
       context: context,
-      label: 'Modal pick',
+      label: 'Mini pick',
       list: List.generate(50, (index) => index),
       item: item,
-      toText: (value) => '$value',
+      toText: (value) => 'Option $value',
     );
     if (result == null) return;
     item = result;

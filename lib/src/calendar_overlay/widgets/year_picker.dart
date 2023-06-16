@@ -11,7 +11,8 @@ class YearPicker extends ParentState<CalendarOverlayController> {
       constraints: BoxConstraints(maxHeight: context.h * .5),
       child: GridView.count(
         crossAxisCount: 3,
-        // physics: const AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
+        // controller: state.yearController,
         padding: EdgeInsets.zero,
         childAspectRatio: 16 / 6,
         scrollDirection: Axis.vertical,
@@ -52,7 +53,5 @@ class YearPicker extends ParentState<CalendarOverlayController> {
         ).toList(),
       ).paddingSymmetric(horizontal: 6.0),
     );
-    //   },
-    // );
   }
 }

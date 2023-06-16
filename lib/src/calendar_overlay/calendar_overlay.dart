@@ -18,7 +18,7 @@ class CalendarOverlay extends StateWidget<CalendarOverlayController> {
     return SafeArea(
       bottom: false,
       child: Material(
-        color: Colors.white,
+        color: context.theme.scaffoldBackgroundColor,
         borderRadius: const BorderRadius.only(
           topLeft: radius8,
           topRight: radius8,
@@ -43,8 +43,7 @@ class CalendarOverlay extends StateWidget<CalendarOverlayController> {
                     onPressed: state.onClose,
                   ),
                   Text(
-                    TiePickerLocalizations.of(context)?.calendarTitle ??
-                        'nullo',
+                    TiePickerLocalizations.of(context)!.calendarTitle,
                     style: context.h6,
                   ),
                   CupertinoButton(

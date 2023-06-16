@@ -8,6 +8,9 @@ import 'package:intl/intl.dart';
 import 'package:occam/occam.dart';
 
 import 'l10n/tie_picker_localizations.dart';
+import 'src/utils/custom_button.dart';
+import 'src/utils/item_widget.dart';
+import 'src/utils/utils.dart';
 
 export 'l10n/tie_picker_localizations.dart';
 
@@ -24,9 +27,6 @@ part 'src/modal_picker_overlay/modal_picker_overlay.dart';
 part 'src/modal_picker_overlay/modal_picker_overlay_controller.dart';
 part 'src/time_overlay/time_overlay.dart';
 part 'src/time_overlay/time_overlay_controller.dart';
-part 'src/utils/custom_button.dart';
-part 'src/utils/item_widget.dart';
-part 'src/utils/utils.dart';
 
 abstract class ModalPicker {
   static bool _isModalOpen = false;

@@ -1,4 +1,5 @@
-part of tie_picker;
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 extension WidgetPaddingX on Widget {
   Widget paddingSymmetric({
@@ -12,7 +13,7 @@ extension WidgetPaddingX on Widget {
         ),
         child: this,
       );
-      
+
   Widget paddingOnly({
     double left = 0.0,
     double top = 0.0,
@@ -33,7 +34,9 @@ extension WidgetPaddingX on Widget {
 const radius8 = Radius.circular(8);
 
 extension Context on BuildContext {
-  TextTheme get text => Theme.of(this).textTheme;
+  TextTheme get text => theme.textTheme;
+
+  ThemeData get theme => Theme.of(this);
 
   TextStyle? get h1 => text.displayLarge;
   TextStyle? get h2 => text.displayMedium;

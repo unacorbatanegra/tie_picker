@@ -1,4 +1,7 @@
-part of tie_picker;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'utils.dart';
 
 class ItemWidget extends StatelessWidget {
   final String label;

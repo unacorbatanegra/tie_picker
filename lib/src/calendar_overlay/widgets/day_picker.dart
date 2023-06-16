@@ -99,7 +99,7 @@ class DayPicker extends ParentState<CalendarOverlayController> {
                     }
                   } else {
                     if (day.weekday > DateTime.friday) {
-                      textColor = Theme.of(context).primaryColor;
+                      textColor = context.theme.primaryColor;
                     } else {
                       textColor = Colors.black;
                     }
@@ -114,7 +114,9 @@ class DayPicker extends ParentState<CalendarOverlayController> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: color,
-                        border: isToday && !isSelected ? Border.all() : null,
+                        border: isToday && !isSelected
+                            ? Border.all(color: context.theme.primaryColor)
+                            : null,
                         borderRadius: const BorderRadius.all(
                           Radius.circular(4.0),
                         ),
