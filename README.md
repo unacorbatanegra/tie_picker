@@ -62,6 +62,8 @@ date = await ModalPicker.datePicker(
 
 ```
 
+![Calendar](https://github.com/unacorbatanegra/tie_picker/assets/44511181/dc57aa0a-303a-4f1f-b600-f812d9bde7d1)
+
 ### ModalPicker
 
 ### MiniPicker
