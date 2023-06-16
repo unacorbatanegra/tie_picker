@@ -105,12 +105,13 @@ abstract class ModalPicker {
   static Future<DateTime?> timePicker({
     required BuildContext context,
     required DateTime? date,
+    bool use24hFormat = false,
   }) async {
     final result = await showCupertinoModalPopup(
       context: context,
       builder: (ctx) => TimeOverlay(
         time: date,
-        use24hFormat: true,
+        use24hFormat: use24hFormat,
       ),
       useRootNavigator: true,
     );

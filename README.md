@@ -9,6 +9,7 @@ Tie picker is a minimalist opinionated helper for custom selectors and DateTime 
 ## Index
 
 - [Calendar](#calendar)
+- [TimePicker](#timepicker)
 - [ModalPicker](#modalpicker)
 - [MiniPicker](#minipicker)
 
@@ -62,7 +63,28 @@ date = await ModalPicker.datePicker(
 
 ```
 
+Showcase:
 ![Calendar](https://github.com/unacorbatanegra/tie_picker/assets/44511181/dc57aa0a-303a-4f1f-b600-f812d9bde7d1)
+
+### TimePicker
+
+The time picker follows the same principle that the [Calendar](#calendar). You can pass the currentTime as argument and it returns the new selected time. `24hs` format is configurable.
+
+Usage:
+
+```dart
+void openTimePicker() async {
+    date = await ModalPicker.timePicker(
+        context: context,
+        date: date,
+        use24hFormat: false,
+    );
+}
+```
+
+Showcase:
+
+![Demo5](https://github.com/unacorbatanegra/tie_picker/assets/44511181/8ebf41bd-a179-45af-94e7-f6f0e29dd17b)
 
 ### ModalPicker
 
@@ -114,6 +136,9 @@ void openModalPicker() async {
     item = result;
 }
 ```
+
+Showcase:
+
 ![Demo3](https://github.com/unacorbatanegra/tie_picker/assets/44511181/5e75d1be-a218-448b-82fd-13343d70d1c5)
 
 ### MiniPicker
@@ -140,5 +165,7 @@ void openMiniPicker() async {
     data = result;
 }
 ```
+
+Showcase:
+
 ![Demo4](https://github.com/unacorbatanegra/tie_picker/assets/44511181/2a596b6b-f35e-4cd7-beaf-ea96684046f2)
-![Demo5](https://github.com/unacorbatanegra/tie_picker/assets/44511181/8ebf41bd-a179-45af-94e7-f6f0e29dd17b)

@@ -114,6 +114,7 @@ class _MainPageState extends State<MainPage> {
     date = await ModalPicker.timePicker(
       context: context,
       date: date,
+      use24hFormat: false,
     );
   }
 }
