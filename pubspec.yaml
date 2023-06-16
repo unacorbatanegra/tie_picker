@@ -17,6 +17,7 @@ dependencies:
   occam: ^1.0.0
   flutter_localizations: 
     sdk: flutter
+  collection: ^1.17.1
 
 dev_dependencies:
   flutter_test:
