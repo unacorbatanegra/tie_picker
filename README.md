@@ -114,6 +114,7 @@ void openModalPicker() async {
     item = result;
 }
 ```
+![Demo3](https://github.com/unacorbatanegra/tie_picker/assets/44511181/5e75d1be-a218-448b-82fd-13343d70d1c5)
 
 ### MiniPicker
 
@@ -139,3 +140,5 @@ void openMiniPicker() async {
     data = result;
 }
 ```
+![Demo4](https://github.com/unacorbatanegra/tie_picker/assets/44511181/2a596b6b-f35e-4cd7-beaf-ea96684046f2)
+![Demo5](https://github.com/unacorbatanegra/tie_picker/assets/44511181/8ebf41bd-a179-45af-94e7-f6f0e29dd17b)
