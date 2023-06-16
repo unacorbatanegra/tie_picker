@@ -2,7 +2,6 @@ name: tie_picker
 description: Minimalist pickers
 version: 0.0.1
 homepage: https://github.com/unacorbatanegra/tie_picker
-publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
