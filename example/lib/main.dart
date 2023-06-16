@@ -41,10 +41,13 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   DateTime? date;
   void openDatePicker() async {
+
     date = await ModalPicker.datePicker(
       context: context,
       date: date,
+      mode: CalendarMode.day,
     );
+    
   }
 
   @override

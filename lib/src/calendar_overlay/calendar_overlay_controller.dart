@@ -1,6 +1,10 @@
 part of tie_picker;
 
-enum CalendarMode { day, month, year }
+enum CalendarMode {
+  day,
+  month,
+  year,
+}
 
 class CalendarOverlayController extends StateController<CalendarOverlay> {
   final title = ''.rx;
