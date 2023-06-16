@@ -7,18 +7,21 @@ import 'package:tie_picker/tie_picker.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      supportedLocales: [
-        Locale('en', 'US'),
+    MaterialApp(
+      locale: const Locale('es'),
+      theme: ThemeData.from(colorScheme: const ColorScheme.light()),
+      supportedLocales: const [
+        Locale('es', 'AR'),
+        ...TiePickerLocalizations.supportedLocales
         // Locale('es', 'PY'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         TiePickerLocalizations.delegate
       ],
-      home: MainPage(),
+      home: const MainPage(),
     ),
   );
 }

@@ -41,7 +41,6 @@ class CalendarOverlayController extends StateController<CalendarOverlay> {
         DateTime(
           day.year,
           day.month,
-          day.day,
           selectedDate().hour,
           selectedDate().minute,
           selectedDate().second,

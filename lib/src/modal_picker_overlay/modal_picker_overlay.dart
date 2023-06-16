@@ -23,13 +23,16 @@ class ModalPickerOverlay<T>
     return SafeArea(
       bottom: false,
       child: Material(
-        
+        color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: radius8,
+          topRight: radius8,
+        ),
         child: Container(
           decoration: const BoxDecoration(
-            color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
+              topLeft: radius8,
+              topRight: radius8,
             ),
           ),
           constraints: BoxConstraints(
@@ -40,7 +43,6 @@ class ModalPickerOverlay<T>
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              
               Row(
                 children: [
                   CupertinoButton(
@@ -79,9 +81,7 @@ class ModalPickerOverlay<T>
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 32,
-              ),
+              const SizedBox(height: 32),
             ],
           ),
         ),
