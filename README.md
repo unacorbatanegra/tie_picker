@@ -24,18 +24,18 @@ Tie picker is a minimalist opinionated helper for custom selectors and Calendar 
 ```
 
 ```dart
-    MaterialApp(
-        locale: const Locale('en'),
-        /// Add the supported locales
-        supportedLocales: TiePickerLocalizations.supportedLocales,
-        localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            /// Add the localizations delegate
-            TiePickerLocalizations.delegate
-        ],
-    );
+MaterialApp(
+    locale: const Locale('en'),
+    /// Add the supported locales
+    supportedLocales: TiePickerLocalizations.supportedLocales,
+    localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        /// Add the localizations delegate
+        TiePickerLocalizations.delegate
+    ],
+);
 ```
 
 ### Calendar
@@ -174,9 +174,3 @@ Showcase:
 
 - [ ] Unit & Integration test
 - [ ] FilterPicker
-
-## Disclaimer
-
-This package is intended to be used on my personal & work projects. Feel free to contribute.
-
-Enjoy :)
