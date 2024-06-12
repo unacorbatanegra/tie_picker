@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:occam/occam.dart';
+import 'package:tie_picker/tie_picker.dart';
 
-import 'l10n/tie_picker_localizations.dart';
 import 'src/utils/custom_button.dart';
 import 'src/utils/item_widget.dart';
 import 'src/utils/utils.dart';

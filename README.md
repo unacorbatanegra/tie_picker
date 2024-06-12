@@ -2,7 +2,7 @@
 
 # Tie Picker
 
-Tie picker is a minimalist opinionated helper for custom selectors and Calendar that support Theme Colors (only light mode supported right now) and internationalization.
+Tie picker is a minimalist opinionated helper for custom selectors and Calendars that support Theme Colors (only light mode supported right now) and internationalization.
 
 ![demo2](https://github.com/unacorbatanegra/tie_picker/assets/44511181/95efe503-0f0e-48e8-befc-f3e1e793ec7c)
 
@@ -173,4 +173,4 @@ Showcase:
 ## TODO
 
 - [ ] Unit & Integration test
-- [ ] FilterPicker
+- [x] FilterPicker
